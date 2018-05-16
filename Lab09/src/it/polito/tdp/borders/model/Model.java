@@ -8,6 +8,7 @@ import org.jgrapht.Graphs;
 import org.jgrapht.alg.ConnectivityInspector;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
+import org.jgrapht.traverse.DepthFirstIterator;
 
 import it.polito.tdp.borders.db.BordersDAO;
 
@@ -69,7 +70,15 @@ public class Model {
 		return ci.connectedSets().size();
 	}
 	
-	
+	public List<Country> getVicini(Country c){
+		DepthFirstIterator<Country,DefaultEdge> df = new DepthFirstIterator(grafo,c);
+		List<Country> result = new ArrayList<>();
+		while(df.hasNext()) {
+			result.add(df.next());
+		}
+		
+		return result;
+	}
 	
 
 }

@@ -58,7 +58,7 @@ public class Country {
 	}
 	@Override
 	public String toString() {
-		return "Country [stateAbb=" + stateAbb + ", cCode=" + cCode + ", stateName=" + stateName + "]";
+		return this.stateName;
 	}
 	
 	
